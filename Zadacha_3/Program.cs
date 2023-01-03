@@ -45,10 +45,8 @@ void FillArray1(int[,] arr, int[,] arr1)
             for (int k = 0; k < arr1.GetLength(1); k++)
             {
                 arrayC[i, j] += arrayA[i, k] * arrayB[k, j];
-
             }
             Console.Write(arrayC[i, j] + " ");
-
         }
         Console.WriteLine();
 
