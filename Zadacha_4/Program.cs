@@ -1,62 +1,62 @@
 ﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
-Console.Write("Введите число, ");
-Console.Write("a: ");
+Console.Write("Введите чмсло, ");
 int a = Convert.ToInt32(Console.ReadLine());
-Console.Write("b: ");
+Console.Write("Введите чмсло, ");
 int b = Convert.ToInt32(Console.ReadLine());
 int[,] array = new int[a, b];
-int[,] ArrayGenerated()
+void FillArray(int[,] arr)
 {
-    if( a * b <= 89)
+    if (a * b <= 99)
     {
-        Console.Write("Генерация массива, ");
-        int number;
-        for(int i = 0; i < a; i++)
+        for (int i = 0; i < array.GetLength(0); i++)
         {
-            for(int j = 0; j < b; j++)
+            int element = 0;
+            for (int j = 0; j < array.GetLength(1); j++)
             {
-                while(array[i, j] == 0)
+                while (array[i, j] == 0)
                 {
-                    number = new Random().Next(10, 89);
-                    if(!arrayContains(array, number))
+                    element = new Random().Next(10, 99);
+                    if (!arrayContains(array, element))
                     {
-                        array[i, j] = number;
+                        array[i, j] = element;
                     }
                 }
                 Console.Write(array[i, j] + " ");
             }
             Console.WriteLine();
         }
-        return array;
-    }
-    else
-    {
-        Console.WriteLine("Уникальных чисел меньше");
-        return array;
     }
 }
-bool arrayContains(int[,] array, int number)
+
+void PrintArray(int[,] arr)
+{
+
+    for (int i = 0; i < arr.GetLength(0); i++)
+    {
+        for (int j = 0; j < arr.GetLength(1); j++)
+        {
+            Console.Write(arr[i, j] + " ");
+        }
+        Console.WriteLine();
+    }
+}
+
+bool arrayContains(int[,] array, int element)
 {
     for (int i = 0; i < array.GetLength(0); i++)
     {
         for (int j = 0; j < array.GetLength(1); j++)
         {
-            if(array[i, j] == number);
+            if (array[i, j] == element)
             {
                 return true;
             }
         }
     }
-    return false;  
+    return false;
 }
-void Array2DPrint(int[,] matrix)
-{
-    for (int i = 0; i < array.GetLength(0); i++)
-    {
-        for (int j = 0; j < array.GetLength(1); j++)
-        {
-            Console.Write(matrix[i, j] + " ");
-        }
-    }
-}
+
+FillArray(array);
+Console.WriteLine();
+PrintArray(array);
+Console.WriteLine();
